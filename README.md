@@ -32,3 +32,7 @@ pip install -r requirements.txt
     1. モジュールのインストールは [上記](#Installation) の通り
 1. `confirm_ad.py` のURLとキーワード，`whereplace.py` の教室名を適宜書き換えてカスタマイズできる
 1. `run.py` を実行すると，あなたの追加した Slack Bot とのやり取りが可能になる
+
+## LICENSE
+
+[MIT License](./LICENSE)
