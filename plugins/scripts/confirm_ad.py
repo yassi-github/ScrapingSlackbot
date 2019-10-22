@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup
 from urllib import request
-import lxml.html
 import re
 
 class Confirmad():
@@ -11,7 +10,7 @@ class Confirmad():
     def scraping1(self, message):
         url = "http://www.marunaka.net/tenpo/shikoku/chirashi_list_new.php?area=3"
         res = request.urlopen(url)
-        soup = BeautifulSoup(res, features="lxml")
+        soup = BeautifulSoup(res, features="html.parser")
 
         # ここでは宮脇店を探索．"宮脇"を任意のキーワードに置換して使用可．
         out = soup.find("a", string=re.compile("宮脇"))
@@ -34,7 +33,7 @@ class Confirmad():
         # 昭和町店のURLを探索．任意のマルヨシセンターの店舗URL(末尾のidが違うだけ)に置換して使用可．
         url = "http://ww2.maruyoshi-center.co.jp/shop/detail.php?id=49"
         res = request.urlopen(url)
-        soup = BeautifulSoup(res, features="lxml")
+        soup = BeautifulSoup(res, features="html.parser")
 
         out = soup.find("a", id="bnrLeaflet")
         message.send(out["href"])
@@ -42,12 +41,12 @@ class Confirmad():
     def scraping3(self, message):
         url = "http://www.kagawa.coop.or.jp/shop/info/"
         res = request.urlopen(url)
-        soup = BeautifulSoup(res, features="lxml")
+        soup = BeautifulSoup(res, features="html.parser")
 
         out = soup.find("iframe")
         out_src = out.get("src")
         dom = request.urlopen(out_src)
-        beautiful = BeautifulSoup(dom, features="lxml")
+        beautiful = BeautifulSoup(dom, features="html.parser")
 
         # ここでは扇町店を探索．"扇町"を任意のキーワードに置換して使用可．
         out_tirashi = beautiful.find_all("li", string=re.compile("扇町"))
