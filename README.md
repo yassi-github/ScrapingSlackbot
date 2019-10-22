@@ -6,7 +6,7 @@
 
 - `help` でコマンドの一覧を表示  
 - `marunaka`，`coop`，`granderies` でそれぞれの広告を取得  
-- `W3` のように，曜日の頭文字+時間数で講義教室の表示  
+- `W` のように，曜日の頭文字で講義教室の表示  
 - `http [URL]` で入力したURLを標準ブラウザで開くパラメータを付加
 - コマンド以外で会話
 
@@ -32,3 +32,7 @@ pip install -r requirements.txt
     1. モジュールのインストールは [上記](#Installation) の通り
 1. `confirm_ad.py` のURLとキーワード，`whereplace.py` の教室名を適宜書き換えてカスタマイズできる
 1. `run.py` を実行すると，あなたの追加した Slack Bot とのやり取りが可能になる
+
+## LICENSE
+
+[MIT License](./LICENSE)

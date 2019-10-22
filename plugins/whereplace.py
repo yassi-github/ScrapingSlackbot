@@ -61,47 +61,28 @@ def reply_c(message):
     ad_c = Confirmad()
     ad_c.scraping3(message)
 
-@respond_to('(M|T|W|Th|F)([0-5])')
-def reply_class(ins, message, times):
+@respond_to('(M|T|W|Th|F)')
+def reply_class(ins, message):
     # 時間割を直接書き込んでいる．
     if message == "M":
-        if times == "1":place = "114"
-        if times == "2":place = "5号館14講義室"
-        if times == "3":place = ""
-        if times == "4":place = ""
-        if times == "5":place = ""
-        if times == "0":place = "1:114\n2:5号館14講義室\n3:\n4:\n5:"
+        place_m = settings.place_m
+        place = place_m
+
     if message == "T":
-        if times == "1":place = "401"
-        if times == "2":place = "58講義室"
-        if times == "3":place = "19講義室"
-        if times == "4":place = "168"
-        if times == "5":place = "8棟図書室"
-        if times == "0":place = "1:401\n2:58\n3:19\n4:168\n5:8棟図書室"
+        place_t = settings.place_t
+        place = place_t
 
     if message == "W":
-        if times == "1":place = "173"
-        if times == "2":place = ""
-        if times == "3":place = ""
-        if times == "4":place = "049"
-        if times == "5":place = "096"
-        if times == "0":place = "1:\n2:\n3:\n4:3101\n5:"
+        place_w = settings.place_w
+        place = place_w
 
     if message == "Th":
-        if times == "1":place = ""
-        if times == "2":place = ""
-        if times == "3":place = ""
-        if times == "4":place = "634"
-        if times == "5":place = "546"
-        if times == "0":place = "1:\n2:\n3:\n4:634\n5:546"
+        place_th = settings.place_th
+        place = place_th
 
     if message == "F":
-        if times == "1":place = ""
-        if times == "2":place = "3014"
-        if times == "3":place = ""
-        if times == "4":place = "1592"
-        if times == "5":place = "6535"
-        if times == "0":place = "1:\n2:3014\n3:\n4:1592\n5:6535"
+        place_f = settings.place_f
+        place = place_f
 
     ins.reply(place)
 
