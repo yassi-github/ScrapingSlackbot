@@ -1,4 +1,5 @@
 /.env
 *.txt
+!/runtime.txt
 !/requirements.txt
 __pycache__

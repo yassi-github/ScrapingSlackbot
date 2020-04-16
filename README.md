@@ -2,6 +2,8 @@
 
 スクレイピング等の機能を持たせたSlack Bot
 
+※ Talk API 関連はコメントアウトしています
+
 ## Description
 
 - `help` でコマンドの一覧を表示  
@@ -27,10 +29,13 @@ pip install -r requirements.txt
 1. APIキーの発行
     1. Slackbot API の権限は，Admin, Interactivity.
     1. Bot User OAuth Acess Token を使用
-1. `.env.sample` を `.env` にリネームし， API_TOKEN と  API_KEY にそれぞれ Slackbot と TalkAPI のAPIキーを書き込む
+1. `.env.sample` を `.env` にリネーム
+    1. API_TOKEN に Slackbot のAPIキーを書き込む
+    <!-- 1. API_TOKEN と  API_KEY にそれぞれ Slackbot と TalkAPI のAPIキーを書き込む -->
+    1. 教室名を追記する（半角英数のみ対応）
 1. Python3のインストール
     1. モジュールのインストールは [上記](#Installation) の通り
-1. `confirm_ad.py` のURLとキーワード，`whereplace.py` の教室名を適宜書き換えてカスタマイズできる
+1. `whereplace.py` の教室名や，`confirm_ad.py` のURL等を適宜書き換えてカスタマイズできる
 1. `run.py` を実行すると，あなたの追加した Slack Bot とのやり取りが可能になる
 
 ## LICENSE

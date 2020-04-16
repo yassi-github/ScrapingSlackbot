@@ -2,12 +2,13 @@ from bs4 import BeautifulSoup
 from urllib import request
 import re
 
-class Confirmad():
+
+class ConfirmAD():
 
     def __init__(self):
         pass
 
-    def scraping1(self, message):
+    def scraping_m(self, message):
         url = "http://www.marunaka.net/tenpo/shikoku/chirashi_list_new.php?area=3"
         res = request.urlopen(url)
         soup = BeautifulSoup(res, features="html.parser")
@@ -29,7 +30,7 @@ class Confirmad():
                 html = ht + ml
                 message.send(html)
 
-    def scraping2(self, message):
+    def scraping_g(self, message):
         # 昭和町店のURLを探索．任意のマルヨシセンターの店舗URL(末尾のidが違うだけ)に置換して使用可．
         url = "http://ww2.maruyoshi-center.co.jp/shop/detail.php?id=49"
         res = request.urlopen(url)
@@ -38,7 +39,7 @@ class Confirmad():
         out = soup.find("a", id="bnrLeaflet")
         message.send(out["href"])
 
-    def scraping3(self, message):
+    def scraping_c(self, message):
         url = "http://www.kagawa.coop.or.jp/shop/info/"
         res = request.urlopen(url)
         soup = BeautifulSoup(res, features="html.parser")
