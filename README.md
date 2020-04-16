@@ -38,6 +38,8 @@ pip install -r requirements.txt
 1. `whereplace.py` の教室名や，`confirm_ad.py` のURL等を適宜書き換えてカスタマイズできる
 1. `run.py` を実行すると，あなたの追加した Slack Bot とのやり取りが可能になる
 
+- Procfile等もあるので，環境変数などの設定を行えば，herokuで動かすことも可能です
+
 ## LICENSE
 
 [MIT License](./LICENSE)
