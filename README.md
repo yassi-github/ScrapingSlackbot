@@ -6,6 +6,8 @@
 
 Classic App を使っているので21年以降使えなくなる…？
 
+herokuで使うことを想定しています
+
 ## Description
 
 - `help` でコマンドの一覧を表示  
@@ -26,18 +28,22 @@ Classic App を使っているので21年以降使えなくなる…？
 pip install -r requirements.txt
 ``` -->
 1. SlackBotを作成する
-    1. [api.slack.com](https://api.slack.com/rtm#classic)からClassicAppをつくる
-    1. 表示名とフルネームを設定
-    1. OAuth & Permissions > Install App to Workspace
+    1. [api.slack.com](https://api.slack.com/rtm#classic)からClassicAppをつくる(名前を決める)
+    1. AppHome > Add Legacy Bot User で表示名とフルネームを設定
+    1. OAuth & Permissions > Install App to Workspace でワークスペースにボットを追加
     <!-- 1. Copy Bot User OAuth Access Token & Paste .env > API_TOKEN -->
     <!-- 1. https://api.slack.com/methods/conversations.list/test を使ってAPIの動作を確認する。必要に応じてscopeを追加許可する。 -->
     1. Bot User OAuth Access Tokenをコピーしておく
+1. 教室名を書き換える
+    1. `.env.sample`の教室名の記述を書き換える(herokuを使わない場合はAPIトークンも書き換える)
+    1. `.env.sample`を`.env`にリネームする
+    1. `.gitignore`を消す
 1. [heroku](https://jp.heroku.com/)にあげる
-    1. `heroku create`
+    1. `heroku create {アプリ名}`
     1. Buildpacks: python
-    1. Config Varsで `KEY: API_TOKEN` `VALUE: コピーしておいたBot User OAuth Acess Token` を設定
-    1. 続けて `key: place_m` `Value: 1:hoge\n2:huga\n`などと応答文も設定する(keyの値は`whereplace.py`の`place_{m}`の変数名を使用する)
-    1. `heroku ps:scale worker=1 -a {herokuのアプリ名}`
+    1. gitであげる。`heroku git:remote -a {アプリ名}`(リモートリポジトリに登録) `git init` `git add .` `git commit -m "comment"` `git push heroku master`
+    1. Config Varsで `Key: API_TOKEN` `Value: コピーしておいたBot User OAuth Acess Token` を設定
+    1. `heroku ps:scale worker=1 -a {herokuのアプリ名}` でアプリ起動
 
 ## Usage
 
