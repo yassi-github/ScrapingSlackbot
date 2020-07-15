@@ -62,12 +62,16 @@ def reply_c(message):
     ad_c = ConfirmAD()
     ad_c.scraping_c(message)
 
-@respond_to('(M|T|W|Th|F)')
+@respond_to('(M|Th|W|T|F)')
 def reply_class(ins, message):
     # 時間割を直接書き込んでいる．
     if message == "M":
         place_m = settings.place_m
         place = place_m
+
+    if message == "Th":
+        place_th = settings.place_th
+        place = place_th
 
     if message == "T":
         place_t = settings.place_t
@@ -76,10 +80,6 @@ def reply_class(ins, message):
     if message == "W":
         place_w = settings.place_w
         place = place_w
-
-    if message == "Th":
-        place_th = settings.place_th
-        place = place_th
 
     if message == "F":
         place_f = settings.place_f
