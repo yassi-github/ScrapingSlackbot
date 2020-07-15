@@ -1,5 +1,0 @@
-*.txt
-!/runtime.txt
-!/requirements.txt
-/.env
-__pycache__
